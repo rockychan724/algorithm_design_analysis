@@ -2,7 +2,7 @@
 #include "reverse_list.h"
 
 int main() {
-//    MinDistanceTest();
-    ReverseListTest()
+    MinDistanceTest();
+//    ReverseListTest()
 ;    return 0;
 }

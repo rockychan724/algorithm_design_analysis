@@ -1,8 +1,11 @@
-#include "min_distance.h"
-#include "reverse_list.h"
+#include "array/min_distance.h"
+#include "linked_list/reverse_list.h"
+#include "graph/shorted_bridge_time.h"
+#include "graph/graph_djkstra.h"
 
 int main() {
-    MinDistanceTest();
-//    ReverseListTest()
-;    return 0;
+//    MinDistanceTest();
+//    ReverseListTest();
+    ShortedBridgeTime();
+    return 0;
 }

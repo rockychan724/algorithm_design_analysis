@@ -14,7 +14,7 @@
 int MinDistance1(int A[], int n) {
     if (n < 2)
         return -1;
-    std::sort(A, A + n); // 如果内部排序算法为快速排序，时间复杂度为O(nlogn)
+    std::sort(A, A + n); // sort()内部排序算法为快速排序，时间复杂度为O(nlogn)
     int min_distance = std::abs(A[0] - A[1]);
     for (int i = 1; i < n - 1; i++) {
         int d = std::abs(A[i] - A[i + 1]);
@@ -28,8 +28,8 @@ int MinDistance1(int A[], int n) {
 // 将原数组A的元素一一映射到B数组上（映射方式是B[A[i]-min]=A[i]-min），再求相邻的最小间距
 // 该算法的时间复杂度为O(n)，空间复杂度为O(max-min)
 // 以A[] = {3, 7, 1, 9, 10}为例，min=1, max=10, B[]=
-//  0   1   2   3   4   5   6   7   8   9   10
-//  0   -1  2   -1  -1  -1  6   -1  8   9   -1
+//  0   1   2   3   4   5   6   7   8   9
+//  0   -1  2   -1  -1  -1  6   -1  8   9
 int MinDistance2(int A[], int n) {
     if (n < 2)
         return -1;

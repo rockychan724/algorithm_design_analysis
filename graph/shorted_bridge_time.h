@@ -71,7 +71,7 @@ std::string BitsetToString(int i, int j) {
     return i_[0] ? result + "返回" : result + "过桥";
 }
 
-int ShortedBridgeTime() {
+void ShortedBridgeTimeTest() {
     int **graph; // 32 = 2^(4 + 1) 甲乙丙丁、手电筒一共有32种状态，假设没过桥是0，过了桥是1
     GraphDjkstra gd(32, graph);
     ConstructGraph(graph);
@@ -84,7 +84,7 @@ int ShortedBridgeTime() {
     }
 }
 
-void ShortedBridgeTimeTest() {
+void BitsetTest() {
     std::bitset<4> a(5);
     std::bitset<4> b(6);
     std::cout << a << ',' << b << std::endl;

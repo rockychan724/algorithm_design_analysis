@@ -4,6 +4,7 @@
 #include "graph/shorted_bridge_time.h"
 #include "graph/graph_djkstra.h"
 #include "linked_list/reverse_list.h"
+#include "recursion/factorization.h"
 #include "string/move_star_forward.h"
 
 
@@ -13,6 +14,8 @@ int main() {
 //    ShortedBridgeTimeTest();
 //    MoveStartForwardTest();
 //    MinTest();
-    FindAllPropertyIndexTest();
+//    FindAllPropertyIndexTest();
+//    IntegerDivisionTest();
+    IntegerFactorizationTest();
     return 0;
 }

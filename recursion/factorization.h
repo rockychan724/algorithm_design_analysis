@@ -5,7 +5,7 @@
 #include <vector>
 #include <stack>
 
-bool can_repeat;
+bool can_repeat = true;
 int total = 0;
 std::vector<std::vector<int>> result;
 
@@ -25,15 +25,11 @@ void IntegerFactorization(int n, std::vector<int> &temp) {
     } else {
         for (int i = 2; i <= n; i++) {
             if (n % i == 0) {
-                if (can_repeat) {  // 允许重复
-                    temp.push_back(i);
-                    IntegerFactorization(n / i, temp);
-                    temp.erase(temp.end() - 1);
-                } else if (temp.empty() || temp.back() <= i) {  // 不允许重复
-                    temp.push_back(i);
-                    IntegerFactorization(n / i, temp);
-                    temp.erase(temp.end() - 1);
-                }
+                if (!can_repeat && !temp.empty() && temp.back() > i)
+                    continue;
+                temp.push_back(i);
+                IntegerFactorization(n / i, temp);
+                temp.pop_back();
             }
         }
     }
@@ -45,7 +41,6 @@ void IntegerDivisionTest() {
 }
 
 void IntegerFactorizationTest() {
-    can_repeat = true;
     for (int n = 2; n <= 12; n++) {
         std::vector<int> temp;
         total = 0;

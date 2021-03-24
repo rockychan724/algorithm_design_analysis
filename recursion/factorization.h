@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
-static int total = 0;
-static std::vector<std::vector<int>> result;
+bool can_repeat;
+int total = 0;
+std::vector<std::vector<int>> result;
 
 // IntegerDivision(n, m)表示n的最大加数不超过m的划分个数
 int IntegerDivision(int n, int m) {
@@ -19,24 +21,19 @@ int IntegerDivision(int n, int m) {
 void IntegerFactorization(int n, std::vector<int> &temp) {
     if (n == 1) {
         total++;
-        std::vector<int> v(temp);
-        result.push_back(v);
-        temp.clear();
-        std::cout << "n = 1:" << std::endl;
-        for (auto i : v) {
-            std::cout << i << ",";
-        }
-        std::cout << std::endl;
+        result.push_back(temp);
     } else {
-        for (int i = n; i > 1; i--) {
+        for (int i = 2; i <= n; i++) {
             if (n % i == 0) {
-                temp.push_back(i);
-//                std::cout << "n = " << n << std::endl;
-//                for (auto j : temp) {
-//                    std::cout << j << ",";
-//                }
-//                std::cout << std::endl;
-                IntegerFactorization(n / i, temp);
+                if (can_repeat) {  // 允许重复
+                    temp.push_back(i);
+                    IntegerFactorization(n / i, temp);
+                    temp.erase(temp.end() - 1);
+                } else if (temp.empty() || temp.back() <= i) {  // 不允许重复
+                    temp.push_back(i);
+                    IntegerFactorization(n / i, temp);
+                    temp.erase(temp.end() - 1);
+                }
             }
         }
     }
@@ -48,16 +45,18 @@ void IntegerDivisionTest() {
 }
 
 void IntegerFactorizationTest() {
-    std::vector<int> temp;
+    can_repeat = true;
     for (int n = 2; n <= 12; n++) {
+        std::vector<int> temp;
         total = 0;
-        IntegerFactorization(6, temp);
-        std::cout << "n = " << n << ", " << total << std::endl;
-        for (auto &res : result) {
-            for (auto &fac: res) {
-                std::cout << fac << "X";
+        result.clear();
+        IntegerFactorization(n, temp);
+        std::cout << "n = " << n << ", total: " << total << std::endl;
+        for (auto &s : result) {
+            for (auto &f : s) {
+                std::cout << f << "X";
             }
-            std::cout << std::endl;
+            std::cout << "\b" << std::endl;
         }
     }
 }

@@ -4,6 +4,7 @@
 #include "graph/shorted_bridge_time.h"
 #include "graph/graph_djkstra.h"
 #include "linked_list/reverse_list.h"
+#include "other/find_water_king.h"
 #include "recursion/factorization.h"
 #include "string/move_star_forward.h"
 
@@ -16,6 +17,7 @@ int main() {
 //    MinTest();
 //    FindAllPropertyIndexTest();
 //    IntegerDivisionTest();
-    IntegerFactorizationTest();
+//    IntegerFactorizationTest();
+    FindWaterKingTest();
     return 0;
 }

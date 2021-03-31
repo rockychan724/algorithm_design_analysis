@@ -5,6 +5,7 @@
 #include "graph/graph_djkstra.h"
 #include "linked_list/reverse_list.h"
 #include "other/find_water_king.h"
+#include "other/find_special_value.h"
 #include "recursion/factorization.h"
 #include "string/move_star_forward.h"
 
@@ -18,6 +19,8 @@ int main() {
 //    FindAllPropertyIndexTest();
 //    IntegerDivisionTest();
 //    IntegerFactorizationTest();
-    FindWaterKingTest();
+//    FindWaterKingTest();
+//    BitsetTest();
+    FindSpecialValueTest();
     return 0;
 }

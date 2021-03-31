@@ -89,7 +89,7 @@ void BitsetTest() {
     std::bitset<4> b(6);
     std::cout << a << ',' << b << std::endl;
     std::cout << (a ^ b)[0] << std::endl;
-    std::cout << a << ',' << b << std::endl;
+    std::cout << a[0] << ',' << b[0] << std::endl;
 }
 
 #endif //ALGORITHM_DESIGN_ANALYSIS_SHORTED_BRIDGE_TIME_H

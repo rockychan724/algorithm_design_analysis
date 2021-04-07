@@ -6,9 +6,10 @@
 #include "linked_list/reverse_list.h"
 #include "other/find_water_king.h"
 #include "other/find_special_value.h"
+#include "other/cpu_double_core.h"
+#include "other/huiwen.h"
 #include "recursion/factorization.h"
 #include "string/move_star_forward.h"
-
 
 int main() {
 //    MinDistanceTest();
@@ -21,6 +22,8 @@ int main() {
 //    IntegerFactorizationTest();
 //    FindWaterKingTest();
 //    BitsetTest();
-    FindSpecialValueTest();
+//    FindSpecialValueTest();
+    MinRunTimeTest();
+//    SolveTest();
     return 0;
 }

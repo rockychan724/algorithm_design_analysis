@@ -9,6 +9,7 @@
 #include "other/find_special_value.h"
 #include "other/huiwen.h"
 #include "other/lonest_nonrepeating_substring.h"
+#include "other/substring_with_concatenation_of_all_words.h"
 #include "recursion/factorization.h"
 #include "string/move_star_forward.h"
 
@@ -26,6 +27,7 @@ int main() {
 //    FindSpecialValueTest();
 //    MinRunTimeTest();
 //    SolveTest();
-    LongestNonRepeatingSubstringTest();
+//    LongestNonRepeatingSubstringTest();
+    SubstringWithConcatenationOfAllWordsTest();
     return 0;
 }

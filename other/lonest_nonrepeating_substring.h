@@ -17,7 +17,7 @@ std::string LongestNonRepeatingSubstring(const std::string &src) {
             current_substring[1]++;
             if (current_substring[1] > longest_substring[1])
                 std::copy(current_substring, current_substring + 2, longest_substring);
-        } else {// 一旦bits[index] >= 0，说明字符char(index)在之前出现过，更新当前子串
+        } else { // 一旦bits[index] >= 0，说明字符char(index)在之前出现过，更新当前子串
             current_substring[0] = bits[index] + 1;
             current_substring[1] = i - index;
         }
@@ -30,7 +30,7 @@ void LongestNonRepeatingSubstringTest() {
     std::string test_cases[] = {"absd", "abba", "abdffd", "abcdaefghij", "abcddefg", "abcdabcghysaind"};
     for (const auto &s: test_cases) {
         auto res = LongestNonRepeatingSubstring(s);
-        std::cout << "Input: " << s << ", Output: " <<  res << ", " << res.length() << std::endl;
+        std::cout << "Input: " << s << ", Output: " << res << ", " << res.length() << std::endl;
     }
 }
 

@@ -25,21 +25,24 @@ std::map<int, std::vector<std::string>> SubstringWithConcatenationOfAllWords(std
 }
 
 void SubstringWithConcatenationOfAllWordsTest() {
-    const int test_num = 3;
-    std::vector<std::string> L[test_num] = {{"foo", "bar"}, {"a", "b", "c", "d", "e"}, {"mon", "key"}};
-    std::string W[test_num] = {"barfoothefoobarman", "abcdfecdba", "monkey"};
+    const int test_num = 4;
+    std::vector<std::string> L[test_num] = {{"foo",  "bar"},
+                                            {"a",    "b",    "c",    "d", "e"},
+                                            {"mon",  "key"},
+                                            {"fooo", "barr", "ding", "wing"}};
+    std::string W[test_num] = {"barfoothefoobarman", "abcdfecdba", "monkey",
+                               "lingmindraboofooowingdingbarrwingmonkeypoundcake"};
     for (int i = 0; i < test_num; i++) {
         std::cout << "============================\n";
         auto res = SubstringWithConcatenationOfAllWords(L[i], W[i]);
         std::cout << "Input: W=\"" << W[i] << "\", L=[";
-        std::for_each(L[i].begin(), L[i].end(), [](const std::string& s){std::cout << "\"" << s << "\",";});
+        std::for_each(L[i].begin(), L[i].end(), [](const std::string &s) { std::cout << "\"" << s << "\","; });
         std::cout << "\b]\nOutput:\n";
-        for (auto& r: res) {
+        for (auto &r: res) {
             std::cout << r.first << ", \"";
-            std::for_each(r.second.begin(), r.second.end(), [](const std::string& s){std::cout << s;});
+            std::for_each(r.second.begin(), r.second.end(), [](const std::string &s) { std::cout << s; });
             std::cout << "\"\n";
         }
-        std::cout << "============================\n";
     }
 }
 

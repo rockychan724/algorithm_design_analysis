@@ -5,7 +5,7 @@
 #include <cstring>
 
 char *MoveStartForward(char *str) {
-    int i = std::strlen(str) - 1;
+    int i = static_cast<int>(std::strlen(str) - 1);
     for (int j = i; j >= 0; j--) {
         if (str[i] != '*') {
             i--;

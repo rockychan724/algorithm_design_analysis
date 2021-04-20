@@ -1,0 +1,29 @@
+#ifndef ALGORITHM_DESIGN_ANALYSIS_TEST_H
+#define ALGORITHM_DESIGN_ANALYSIS_TEST_H
+
+#include "bits/stdc++.h"
+
+void perm(int num[], int k, int m) {
+    if (k == m) {
+        for (int i = 0; i < m; i++)
+            std::cout << num[i] << " ";
+        std::cout << "\b\n";
+    } else {
+        for (int i = k; i < m; i++) {
+            std::swap(num[k], num[i]);
+            perm(num, k + 1, m);
+            std::swap(num[k], num[i]);
+        }
+    }
+}
+
+void test() {
+    int num[] = {2, 4, 6};
+    do {
+        std::cout << num[0] << " " << num[1] << " " << num[2] << std::endl;
+    } while (std::next_permutation(num, num + 3));
+    std::cout << "===========\n";
+    perm(num, 0, 3);
+}
+
+#endif //ALGORITHM_DESIGN_ANALYSIS_TEST_H

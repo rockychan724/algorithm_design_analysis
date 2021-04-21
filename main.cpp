@@ -27,13 +27,13 @@ int main() {
 //    IntegerFactorizationTest();
 //    FindWaterKingTest();
 //    BitsetTest();
-//    FindSpecialValueTest();
+    FindSpecialValueTest();
 //    MinRunTimeTest();
 //    SolveTest();
 //    LongestNonRepeatingSubstringTest();
 //    SubstringWithConcatenationOfAllWordsTest();
 //    StarKingTest();
-    PermutationTest();
+//    PermutationTest();
 //    test();
     return 0;
 }

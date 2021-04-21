@@ -11,7 +11,6 @@ ll FindSpecialValue(ll array[], int N, int m, int n) {
     int res[64] = {0};
     for (ll i = 0; i < N; i++) {
         b = array[i];
-        int j = 0;
         for (int j = 0; j < 64; j++) {
             res[j] = (res[j] + b[j]) % n;
         }

@@ -12,11 +12,16 @@ std::map<int, std::vector<std::string>> SubstringWithConcatenationOfAllWords(std
     std::map<int, std::vector<std::string>> res;
     for (int i = 0; i < str_len - word_len * word_num + 1; i++) {
         std::vector<std::string> temp;
+        std::vector<int> flags(word_num, 0);
         for (int j = 0; j < word_num; j++) {
-            std::string sub = W.substr(i + word_len * j, word_len);
-            if (std::find(L.begin(), L.end(), sub) == L.end()) break; // sub不是L中的元素
-            if (std::find(temp.begin(), temp.end(), sub) != temp.end()) break; // sub在temp中，说明当前i位置开头的子串有重复单词
-            temp.push_back(sub);
+            std::string substring = W.substr(i + word_len * j, word_len);
+            int k = 0;
+            auto pos = std::find_if(L.begin(), L.end(),
+                                    [substring, flags, &k](const std::string &word) { return !flags[k++] && word == substring; });
+            if (pos == L.end())
+                break;
+            flags[pos - L.begin()] = 1;
+            temp.push_back(substring);
         }
         if (temp.size() == L.size())
             res.insert({i, temp});
@@ -25,13 +30,14 @@ std::map<int, std::vector<std::string>> SubstringWithConcatenationOfAllWords(std
 }
 
 void SubstringWithConcatenationOfAllWordsTest() {
-    const int test_num = 4;
+    const int test_num = 5;
     std::vector<std::string> L[test_num] = {{"foo",  "bar"},
                                             {"a",    "b",    "c",    "d", "e"},
                                             {"mon",  "key"},
-                                            {"fooo", "barr", "ding", "wing"}};
-    std::string W[test_num] = {"barfoothefoobarman", "abcdfecdba", "monkey",
-                               "lingmindraboofooowingdingbarrwingmonkeypoundcake"};
+                                            {"fooo", "barr", "ding", "wing"},
+                                            {"word", "good", "best", "good"}};
+    std::string W[test_num] = {"barfoothefoobarman", "abcdfecdba", "monkey", "lingmindraboofooowingdingbarrwingmonkeypoundcake",
+                               "wordgoodgoodgoodbestword"};
     for (int i = 0; i < test_num; i++) {
         std::cout << "============================\n";
         auto res = SubstringWithConcatenationOfAllWords(L[i], W[i]);

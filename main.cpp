@@ -27,11 +27,11 @@ int main() {
 //    IntegerFactorizationTest();
 //    FindWaterKingTest();
 //    BitsetTest();
-    FindSpecialValueTest();
+//    FindSpecialValueTest();
 //    MinRunTimeTest();
 //    SolveTest();
 //    LongestNonRepeatingSubstringTest();
-//    SubstringWithConcatenationOfAllWordsTest();
+    SubstringWithConcatenationOfAllWordsTest();
 //    StarKingTest();
 //    PermutationTest();
 //    test();
